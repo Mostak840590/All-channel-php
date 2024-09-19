@@ -1,48 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferdos Bhai</title>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <style>
-        body {
-            margin: 0;
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        video {
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-            background-color: #000;
-        }
-    </style>
+    <title>FERDOS BHAI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="ENJOY FREE LIVE TV">
+    <meta name="keywords" content="LIVETV, SPORTS, MOVIES, MUSIC">
+    <meta name="author" content="Ferdos Bhai">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
+    <script src="https://cdn.plyr.io/3.6.3/plyr.js"></script>
+    <script src="assets/js/jwplayer.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.postimg.cc/VLV8Lp3w/avatar-1002046717675.jpg">
+    <link rel="stylesheet" type="text/css" href="./ferdosalom-fredflix1.css">
+    <script type='text/javascript' src='https://content.jwplatform.com/libraries/IDzF9Zmk.js'></script>
 </head>
+
 <body>
 
-<video id="video" controls></video>
+    <div id="my-video"></div>
 
-<script>
-    if (Hls.isSupported()) {
-        var video = document.getElementById('video');
-        var hls = new Hls();
-        hls.loadSource('http://rhsbjv7k.tvclub.xyz/iptv/APM3584VN3P6W4/19051/index.m3u8');
-        hls.attachMedia(video);
-        hls.on(Hls.Events.MANIFEST_PARSED, function() {
-            video.play();
-        });
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = ':http://rhsbjv7k.tvclub.xyz/iptv/APM3584VN3P6W4/19051/index.m3u8';
-        video.addEventListener('loadedmetadata', function() {
-            video.play();
-        });
-    }
-</script>
+    <script type="text/javascript">
+        var playerInstance = jwplayer("my-video");
 
+        playerInstance.setup({
+            file: "https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/lsdasbvglv/out/v1/bb548a3626cd4708afbb94a58d71dce9/cenc.mpd",
+            width: "100%",
+            height: "100%",
+            aspectratio: "16:9",
+            controls: true,
+            stretching: "uniform",
+            autostart: true,  // অটো প্লে সক্রিয় করা হয়েছে
+            allowfullscreen: true,
+            pip: true,  // PiP মোড সক্রিয় করা
+            skin: {
+                name: "netflix"
+            },
+            drm: {
+                clearkey: {
+                    keyId: "4e993aa8c1f295f8b94e8e9e6f6d0bfe",
+                    key: "86a1ed6e96caab8eb1009fe530d2cf4f"
+                }
+            }
+        });
+
+        // সাউন্ড শুরু থেকেই চালু থাকবে
+        playerInstance.setMute(false);
+
+        playerInstance.on('play', function() {
+            playerInstance.setFullscreen(false);  // প্লে শুরু হলে ফুলস্ক্রিন মোডে প্রবেশ করবে
+        });
+
+    </script>
 </body>
-</html>
 
+</html>
